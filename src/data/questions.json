@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "questionText": "What is the capital of France?",
+    "choices": ["Berlin", "Madrid", "Paris", "Rome"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "id": "2",
+    "questionText": "Which planet is known as the Red Planet?",
+    "choices": ["Earth", "Mars", "Jupiter", "Venus"],
+    "correctAnswer": "Mars"
+  },
+  {
+    "id": "3",
+    "questionText": "What is the largest ocean on Earth?",
+    "choices": ["Atlantic", "Indian", "Arctic", "Pacific"],
+    "correctAnswer": "Pacific"
+  },
+  {
+    "id": "4",
+    "questionText": "Who painted the Mona Lisa?",
+    "choices": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+    "correctAnswer": "Leonardo da Vinci"
+  },
+  {
+    "id": "5",
+    "questionText": "What is the chemical symbol for water?",
+    "choices": ["O2", "H2O", "CO2", "NACL"],
+    "correctAnswer": "H2O"
+  }
+]

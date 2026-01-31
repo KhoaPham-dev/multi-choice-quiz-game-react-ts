@@ -1,0 +1,126 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+.report/
+
+# Node.js
+# attention: https://github.com/npm/npm/issues/1862
+node_modules/
+/dist
+/build
+
+# Runtime data
+*.tgz
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Next.js
+.next/
+
+# Nuxt.js
+.nuxt/
+.output/
+
+# Deno
+.deno/
+
+# Astro
+.astro/
+
+# Vite
+.vite/
+dist/
+
+# Turborepo
+.turbo/
+
+# Storybook
+storybook-static/
+
+# Svelte
+.svelte-kit/
+
+# Serverless
+.serverless/
+
+# FuseBox
+.fusebox/
+
+# Mac
+.DS_Store
+
+# VSCode
+.vscode/
+
+# npm package manager
+package-lock.json
+
+# Yarn package manager
+yarn.lock
+
+# pnpm package manager
+pnpm-lock.yaml
+
+# dependencies
+/node_modules
+
+# production
+/build
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# testing
+/coverage
+
+# Vercel
+.vercel/
+
+# Docker
+.dockerignore
+Dockerfile
+
+# editorconfig
+.editorconfig
+
+# IDEs
+.idea/
+.project/
+.settings/
+
+# MacOSX
+.DS_Store
+
+# Thumbnails
+.thumbnails/
+
+# System files
+Thumbs.db
+
+# temp files
+*.tmp
+*~
+
+# logs
+*.log
+
+# dotenv environment variables file
+.env
+
+# If you prefer to have webpack-dev-server generate the dist folder, comment out the following
+# /dist

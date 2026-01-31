@@ -1,0 +1,139 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin: 0.5rem;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+}
+
+.question-text {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #34495e;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.option-button {
+  width: 100%;
+  background-color: #e9ecef;
+  color: #333;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  transition: all 0.2s ease;
+}
+
+.option-button:hover:not(:disabled, .selected, .correct, .incorrect) {
+  background-color: #dae0e5;
+}
+
+.option-button.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.option-button.correct {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.option-button.incorrect {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+.feedback-display {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.feedback-display.correct {
+  color: #28a745;
+}
+
+.feedback-display.incorrect {
+  color: #dc3545;
+}
+
+.score-display {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.results-page {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.results-page h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.results-page p {
+  font-size: 1.3rem;
+  color: #34495e;
+  margin-bottom: 2rem;
+}
