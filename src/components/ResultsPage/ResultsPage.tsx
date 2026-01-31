@@ -13,6 +13,6 @@ const ResultsPage: React.FC<ResultsPageProps> = ({
       <button onClick={onRestartGame}>Play Again</button>
     </div>
   );
-);
+};
 
 export default ResultsPage;
