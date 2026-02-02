@@ -112,3 +112,4 @@ yarn test
 ## Updates
 
 - Fixed an "Unexpected ')'" syntax error in `src/components/ResultsPage/ResultsPage.tsx` at line 16, character 0, by removing an extraneous closing parenthesis. This resolves a compilation error and allows the `ResultsPage` component to render correctly.
+- Implemented color contrast fix for 'Submit' and 'Next Question' buttons in `src/App.css` to meet WCAG AA standards.
