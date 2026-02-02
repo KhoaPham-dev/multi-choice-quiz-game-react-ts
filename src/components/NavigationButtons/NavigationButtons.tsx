@@ -15,7 +15,11 @@ const NavigationButtons: React.FC<NavigationButtonsProps> = ({
 }) => {
   return (
     <div className="navigation-buttons">
-      <button onClick={onSubmit} disabled={!canSubmit}>
+      <button 
+        onClick={onSubmit} 
+        disabled={!canSubmit} 
+        className={canSubmit ? 'submit-answer-button' : ''}
+      >
         Submit Answer
       </button>
       <button onClick={onNext} disabled={!canProceed}>

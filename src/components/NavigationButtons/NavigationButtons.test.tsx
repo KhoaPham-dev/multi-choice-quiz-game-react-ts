@@ -1,75 +1,164 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import NavigationButtons from './NavigationButtons';
-import React from 'react';
 
 describe('NavigationButtons', () => {
-  const defaultProps = {
-    onSubmit: jest.fn(),
-    onNext: jest.fn(),
-    canSubmit: false,
-    canProceed: false,
-  };
+  const mockOnSubmit = jest.fn();
+  const mockOnNext = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  test('renders submit and next buttons', () => {
-    render(<NavigationButtons {...defaultProps} />);
-    expect(screen.getByRole('button', { name: /Submit Answer/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Next Question/i })).toBeInTheDocument();
+  it('renders both buttons', () => {
+    render(
+      <NavigationButtons
+        onSubmit={mockOnSubmit}
+        onNext={mockOnNext}
+        canSubmit={false}
+        canProceed={false}
+      />
+    );
+    expect(screen.getByRole('button', { name: /submit answer/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /next question/i })).toBeInTheDocument();
   });
 
-  test('submit button is enabled when canSubmit is true', () => {
-    render(<NavigationButtons {...defaultProps} canSubmit={true} />);
-    expect(screen.getByRole('button', { name: /Submit Answer/i })).toBeEnabled();
+  it('applies "submit-answer-button" class when canSubmit is true', () => {
+    render(
+      <NavigationButtons
+        onSubmit={mockOnSubmit}
+        onNext={mockOnNext}
+        canSubmit={true}
+        canProceed={false}
+      />
+    );
+    const submitButton = screen.getByRole('button', { name: /submit answer/i });
+    expect(submitButton).toHaveClass('submit-answer-button');
   });
 
-  test('submit button is disabled when canSubmit is false', () => {
-    render(<NavigationButtons {...defaultProps} canSubmit={false} />);
-    expect(screen.getByRole('button', { name: /Submit Answer/i })).toBeDisabled();
+  it('does not apply "submit-answer-button" class when canSubmit is false', () => {
+    render(
+      <NavigationButtons
+        onSubmit={mockOnSubmit}
+        onNext={mockOnNext}
+        canSubmit={false}
+        canProceed={false}
+      />
+    );
+    const submitButton = screen.getByRole('button', { name: /submit answer/i });
+    expect(submitButton).not.toHaveClass('submit-answer-button');
   });
 
-  test('next button is enabled when canProceed is true', () => {
-    render(<NavigationButtons {...defaultProps} canProceed={true} />);
-    expect(screen.getByRole('button', { name: /Next Question/i })).toBeEnabled();
+  it('disables submit button when canSubmit is false', () => {
+    render(
+      <NavigationButtons
+        onSubmit={mockOnSubmit}
+        onNext={mockOnNext}
+        canSubmit={false}
+        canProceed={false}
+      />
+    );
+    const submitButton = screen.getByRole('button', { name: /submit answer/i });
+    expect(submitButton).toBeDisabled();
   });
 
-  test('next button is disabled when canProceed is false', () => {
-    render(<NavigationButtons {...defaultProps} canProceed={false} />);
-    expect(screen.getByRole('button', { name: /Next Question/i })).toBeDisabled();
+  it('enables submit button when canSubmit is true', () => {
+    render(
+      <NavigationButtons
+        onSubmit={mockOnSubmit}
+        onNext={mockOnNext}
+        canSubmit={true}
+        canProceed={false}
+      />
+    );
+    const submitButton = screen.getByRole('button', { name: /submit answer/i });
+    expect(submitButton).toBeEnabled();
   });
 
-  test('calls onSubmit when submit button is clicked and enabled', async () => {
-    const handleSubmit = jest.fn();
-    render(<NavigationButtons {...defaultProps} canSubmit={true} onSubmit={handleSubmit} />);
+  it('disables next button when canProceed is false', () => {
+    render(
+      <NavigationButtons
+        onSubmit={mockOnSubmit}
+        onNext={mockOnNext}
+        canSubmit={false}
+        canProceed={false}
+      />
+    );
+    const nextButton = screen.getByRole('button', { name: /next question/i });
+    expect(nextButton).toBeDisabled();
+  });
+
+  it('enables next button when canProceed is true', () => {
+    render(
+      <NavigationButtons
+        onSubmit={mockOnSubmit}
+        onNext={mockOnNext}
+        canSubmit={false}
+        canProceed={true}
+      />
+    );
+    const nextButton = screen.getByRole('button', { name: /next question/i });
+    expect(nextButton).toBeEnabled();
+  });
+
+  it('calls onSubmit when submit button is enabled and clicked', async () => {
     const user = userEvent.setup();
-    await user.click(screen.getByRole('button', { name: /Submit Answer/i }));
-    expect(handleSubmit).toHaveBeenCalledTimes(1);
+    render(
+      <NavigationButtons
+        onSubmit={mockOnSubmit}
+        onNext={mockOnNext}
+        canSubmit={true}
+        canProceed={false}
+      />
+    );
+    const submitButton = screen.getByRole('button', { name: /submit answer/i });
+    await user.click(submitButton);
+    expect(mockOnSubmit).toHaveBeenCalledTimes(1);
   });
 
-  test('calls onNext when next button is clicked and enabled', async () => {
-    const handleNext = jest.fn();
-    render(<NavigationButtons {...defaultProps} canProceed={true} onNext={handleNext} />);
+  it('does not call onSubmit when submit button is disabled and clicked', async () => {
     const user = userEvent.setup();
-    await user.click(screen.getByRole('button', { name: /Next Question/i }));
-    expect(handleNext).toHaveBeenCalledTimes(1);
+    render(
+      <NavigationButtons
+        onSubmit={mockOnSubmit}
+        onNext={mockOnNext}
+        canSubmit={false}
+        canProceed={false}
+      />
+    );
+    const submitButton = screen.getByRole('button', { name: /submit answer/i });
+    await user.click(submitButton);
+    expect(mockOnSubmit).not.toHaveBeenCalled();
   });
 
-  test('does not call onSubmit when submit button is clicked and disabled', async () => {
-    const handleSubmit = jest.fn();
-    render(<NavigationButtons {...defaultProps} canSubmit={false} onSubmit={handleSubmit} />);
+  it('calls onNext when next button is enabled and clicked', async () => {
     const user = userEvent.setup();
-    await user.click(screen.getByRole('button', { name: /Submit Answer/i }));
-    expect(handleSubmit).not.toHaveBeenCalled();
+    render(
+      <NavigationButtons
+        onSubmit={mockOnSubmit}
+        onNext={mockOnNext}
+        canSubmit={false}
+        canProceed={true}
+      />
+    );
+    const nextButton = screen.getByRole('button', { name: /next question/i });
+    await user.click(nextButton);
+    expect(mockOnNext).toHaveBeenCalledTimes(1);
   });
 
-  test('does not call onNext when next button is clicked and disabled', async () => {
-    const handleNext = jest.fn();
-    render(<NavigationButtons {...defaultProps} canProceed={false} onNext={handleNext} />);
+  it('does not call onNext when next button is disabled and clicked', async () => {
     const user = userEvent.setup();
-    await user.click(screen.getByRole('button', { name: /Next Question/i }));
-    expect(handleNext).not.toHaveBeenCalled();
+    render(
+      <NavigationButtons
+        onSubmit={mockOnSubmit}
+        onNext={mockOnNext}
+        canSubmit={false}
+        canProceed={false}
+      />
+    );
+    const nextButton = screen.getByRole('button', { name: /next question/i });
+    await user.click(nextButton);
+    expect(mockOnNext).not.toHaveBeenCalled();
   });
 });

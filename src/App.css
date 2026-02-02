@@ -28,7 +28,6 @@ h1 {
 
 /* Button Styles */
 button {
-  background-color: #007bff; /* Vivid Blue for default state (WCAG AA compliant) */
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -41,7 +40,7 @@ button {
 
 /* Hover effect for buttons */
 button:hover:not(:disabled) {
-  background-color: #0056b3; /* Darker Blue for hover state (WCAG AA compliant) */
+  /* Reverted generic background-color for hover */
 }
 
 /* Disabled button styles */
