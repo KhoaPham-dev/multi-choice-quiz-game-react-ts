@@ -20,40 +20,40 @@ This project implements a simple multi-choice quiz game using React and TypeScri
 multi-choice-quiz-game-react-ts/
 ├── public/
 ├── src/
-│   ├── components/
-│   │   ├── AnswerOption/
-│   │   │   ├── AnswerOption.tsx
-│ │ │   └── AnswerOption.test.tsx
-│ │   ├── FeedbackDisplay/
-│ │   │   ├── FeedbackDisplay.tsx
-│ │   │   └── FeedbackDisplay.test.tsx
-│ │   ├── GamePage/
-│ │   │   ├── GamePage.tsx
-│ │   │   └── GamePage.test.tsx
-│ │   ├── HomePage/
-│ │   │   ├── HomePage.tsx
-│ │   │   └── HomePage.test.tsx
-│ │   ├── NavigationButtons/
-│ │   │   ├── NavigationButtons.tsx
-│ │   │   └── NavigationButtons.test.tsx
-│ │   ├── QuestionCard/
-│ │   │   ├── QuestionCard.tsx
-│ │   │   └── QuestionCard.test.tsx
-│ │   ├── ResultsPage/
-│ │   │   ├── ResultsPage.tsx
-│ │   │   └── ResultsPage.test.tsx
-│ │   └── ScoreDisplay/
-│ │       ├── ScoreDisplay.tsx
-│ │       └── ScoreDisplay.test.tsx
-│ ├── data/
-│ │   └── questions.json
-│ ├── types/
-│ │   └── quiz.ts
-│ ├── App.css
-│ ├── App.tsx
-│ ├── main.tsx
-│ ├── setupTests.ts
-│ └── vite-env.d.ts
+    ├── components/
+        ├── AnswerOption/
+            ├── AnswerOption.tsx
+            └── AnswerOption.test.tsx
+        ├── FeedbackDisplay/
+            ├── FeedbackDisplay.tsx
+            └── FeedbackDisplay.test.tsx
+        ├── GamePage/
+            ├── GamePage.tsx
+            └── GamePage.test.tsx
+        ├── HomePage/
+            ├── HomePage.tsx
+            └── HomePage.test.tsx
+        ├── NavigationButtons/
+            ├── NavigationButtons.tsx
+            └── NavigationButtons.test.tsx
+        ├── QuestionCard/
+            ├── QuestionCard.tsx
+            └── QuestionCard.test.tsx
+        ├── ResultsPage/
+            ├── ResultsPage.tsx
+            └── ResultsPage.test.tsx
+        └── ScoreDisplay/
+            ├── ScoreDisplay.tsx
+            └── ScoreDisplay.test.tsx
+    ├── data/
+        └── questions.json
+    ├── types/
+        └── quiz.ts
+    ├── App.css
+    ├── App.tsx
+    ├── main.tsx
+    ├── setupTests.ts
+    └── vite-env.d.ts
 ├── .gitignore
 ├── index.html
 ├── jest.config.ts
@@ -114,3 +114,5 @@ yarn test
 - Fixed an "Unexpected ')'" syntax error in `src/components/ResultsPage/ResultsPage.tsx` at line 16, character 0, by removing an extraneous closing parenthesis. This resolves a compilation error and allows the `ResultsPage` component to render correctly.
 - Refined CSS styling for the 'Submit Answer' button in `src/components/NavigationButtons/NavigationButtons.tsx` and `src/index.css` to specifically target its active state, ensuring WCAG 2.1 AA color contrast standards (background: #004085, text: #FFFFFF) are met only when an answer is selected. Generic button styling in `index.css` was adjusted to prevent unintended global changes.
 - Reverted the generic `button` background-color and hover background-color changes in `src/App.css` to ensure that only the 'Submit Answer' button's active state is targeted with the specific accessible colors, preventing unintended styling regressions on other buttons.
+- Corrected a CSS syntax error in `src/App.css` on line 133 by removing an extra closing parenthesis in the `box-shadow` property.
+- Removed extraneous `│` characters from the `README.md` file structure section to fix formatting issues.
