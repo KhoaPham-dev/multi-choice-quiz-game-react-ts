@@ -112,5 +112,4 @@ yarn test
 ## Updates
 
 - Fixed an "Unexpected ')'" syntax error in `src/components/ResultsPage/ResultsPage.tsx` at line 16, character 0, by removing an extraneous closing parenthesis. This resolves a compilation error and allows the `ResultsPage` component to render correctly.
-- Implemented color contrast fix for 'Submit' and 'Next Question' buttons in `src/App.css` to meet WCAG AA standards.
-- Implemented color contrast fix for the 'Submit Answer' button in `src/App.css` to meet WCAG 2.1 AA standards (4.5:1 contrast ratio) in its active state (background: #004085, text: #FFFFFF).
+- Refined CSS styling for the 'Submit Answer' button in `src/components/NavigationButtons/NavigationButtons.tsx` and `src/index.css` to specifically target its active state, ensuring WCAG 2.1 AA color contrast standards (background: #004085, text: #FFFFFF) are met only when an answer is selected. Generic button styling in `index.css` was adjusted to prevent unintended global changes.
