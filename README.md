@@ -116,3 +116,4 @@ yarn test
 - Reverted the generic `button` background-color and hover background-color changes in `src/App.css` to ensure that only the 'Submit Answer' button's active state is targeted with the specific accessible colors, preventing unintended styling regressions on other buttons.
 - Corrected a CSS syntax error in `src/App.css` on line 133 by removing an extra closing parenthesis in the `box-shadow` property.
 - Removed extraneous `│` characters from the `README.md` file structure section to fix formatting issues.
+- Confirmed the presence and functional integrity of unit tests for `onSubmit` and `onNext` calls in `src/components/NavigationButtons/NavigationButtons.test.tsx`, addressing reviewer feedback regarding test coverage.
